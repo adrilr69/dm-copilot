@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DM Copilot — Table</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐉</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@500;700;900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css?v=4">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">🐉</span>
+      <div>
+        <h1>DM Copilot</h1>
+        <small>Table mode · the game master's grimoire</small>
+      </div>
+    </div>
+    <nav class="tabs" aria-label="Sections">
+      <button data-tab="combat" class="active">⚔️ <span>Combat</span></button>
+      <button data-tab="oracle">🧙 <span>Oracle</span></button>
+      <button data-tab="library">📖 <span>Library</span></button>
+      <button data-tab="forge">🏰 <span>Forge</span></button>
+      <button data-tab="chronicles">📜 <span>Chronicles</span></button>
+    </nav>
+    <div class="pills">
+      <span id="pill-key" class="pill" title="OpenRouter key / index status">…</span>
+      <span id="pill-cost" class="pill gold" title="API cost spent since the server started">$0.0000</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================================================ COMBAT -->
+    <section id="tab-combat" class="tab active">
+      <div class="layout-2">
+        <div class="panel tracker">
+          <div class="tracker-head">
+            <div class="round-box"><span>Round</span><b id="round">—</b></div>
+            <div class="turn-banner" id="turn-banner">Prepare for battle…</div>
+            <div class="actions">
+              <button id="btn-roll-init" class="btn" title="Roll 1d20 + bonus for every monster">🎲 Roll monsters' initiative</button>
+              <button id="btn-next" class="btn primary">▶ Next turn</button>
+              <button id="btn-clear" class="btn ghost" title="Remove every combatant">🧹 End combat</button>
+            </div>
+          </div>
+          <ol id="combatants" class="combatants"></ol>
+          <div class="empty" id="combat-empty">
+            <div class="big">⚔️</div>
+            <p>No one on the battlefield yet.</p>
+            <p class="muted">Add your heroes from the party panel, then summon monsters from the library — their HP, AC and initiative come straight from the stat blocks.</p>
+          </div>
+        </div>
+
+        <div class="side">
+          <div class="panel">
+            <h3>🛡️ The Party</h3>
+            <form id="hero-form" class="hero-form">
+              <input name="name" placeholder="Hero name" required maxlength="30">
+              <label>Lv<input name="level" type="number" min="1" max="20" value="3"></label>
+              <label>Init<input name="init" type="number" min="-5" max="15" value="2"></label>
+              <label>HP<input name="hp" type="number" min="1" max="999" value="24"></label>
+              <label>AC<input name="ac" type="number" min="1" max="30" value="15"></label>
+              <button class="btn small" type="submit">＋</button>
+            </form>
+            <ul id="roster" class="roster"></ul>
+            <button id="btn-party-in" class="btn small wide">⚔️ Send the party to battle</button>
+          </div>
+
+          <div class="panel">
+            <h3>🐉 Summon monsters</h3>
+            <div class="autocomplete">
+              <input id="monster-q" placeholder="Goblin, Troll, Owlbear…" autocomplete="off">
+              <div id="monster-ac" class="ac-list"></div>
+            </div>
+            <div class="row small-row">
+              <label>How many <input id="monster-count" type="number" min="1" max="20" value="1"></label>
+              <label class="check"><input type="checkbox" id="monster-rollhp"> Roll HP</label>
+              <label class="check"><input type="checkbox" id="monster-official" checked> 2024 SRD only</label>
+            </div>
+          </div>
+
+          <div class="panel statblock-panel">
+            <h3>📜 Stat block</h3>
+            <div id="side-statblock" class="muted">Click a monster's 📜 to read its stat block here. <b class="red">Red dice are clickable</b> — roll its attacks in one click.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ ORACLE -->
+    <section id="tab-oracle" class="tab">
+      <div class="layout-2">
+        <div class="panel chat-panel">
+          <div id="chat" class="chat">
+            <div class="msg oracle intro">
+              <div class="avatar">🧙</div>
+              <div class="bubble">
+                <p><b>Greetings, Dungeon Master.</b> Ask me about any monster, spell, item or rule — in English or in French.</p>
+                <p class="muted">I search a library of 8,528 open entries, roll dice, compute averages and weigh encounters with the official SRD 5.2.1 rules. I cite my sources, and I tell you when something is not in the library.</p>
+              </div>
+            </div>
+          </div>
+          <form id="ask-form" class="ask-form">
+            <textarea id="ask-q" rows="2" placeholder="Ask the Oracle… e.g. Can a Fireball cast at 5th level kill a Troll?" required></textarea>
+            <button class="btn primary big" id="ask-btn">🔮 Ask</button>
+          </form>
+          <label class="check poison"><input type="checkbox" id="poison"> 🧪 Poisoned library — slip a malicious fake document into every search (security demo)</label>
+        </div>
+        <div class="side">
+          <div class="panel">
+            <h3>✨ Quick questions</h3>
+            <div id="quick" class="quick"></div>
+          </div>
+          <div class="panel">
+            <h3>📡 Instruments</h3>
+            <div id="oracle-meter" class="mini-kpis"></div>
+            <p class="muted tiny">Every question is logged with its tokens, cost, latency and tool calls (see Chronicles).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ LIBRARY -->
+    <section id="tab-library" class="tab">
+      <div class="panel searchbar">
+        <input id="lib-q" placeholder="Search the library — a name (Fireball) or a description (a chest that bites)…" autocomplete="off">
+        <div class="chips" id="lib-types"></div>
+        <label class="check"><input type="checkbox" id="lib-official"> Official SRD only</label>
+        <span class="muted tiny" id="lib-mode"></span>
+      </div>
+      <div id="lib-results" class="cards-grid"></div>
+    </section>
+
+    <!-- ============================================================ FORGE -->
+    <section id="tab-forge" class="tab">
+      <div class="layout-2 forge">
+        <div class="panel">
+          <h3>🛡️ The party</h3>
+          <div id="forge-party"></div>
+          <h3>👹 The foes</h3>
+          <div class="autocomplete">
+            <input id="forge-q" placeholder="Add a monster…" autocomplete="off">
+            <div id="forge-ac" class="ac-list"></div>
+          </div>
+          <ul id="forge-list" class="forge-list"></ul>
+        </div>
+        <div class="panel verdict-panel">
+          <div id="forge-verdict" class="verdict">—</div>
+          <div class="gauge" id="forge-gauge"><div class="needle" id="forge-needle"></div></div>
+          <div id="forge-budget" class="muted center"></div>
+          <div id="forge-table"></div>
+          <button id="forge-send" class="btn primary wide">⚔️ Send these foes to the combat tracker</button>
+          <p class="muted tiny center">Rules: SRD 5.2.1 "Combat Encounters", XP Budget per Character (p. 202). XP read from each stat block — the same tool the Oracle uses.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ CHRONICLES -->
+    <section id="tab-chronicles" class="tab">
+      <div class="panel">
+        <h2>📜 Chronicles — is the Oracle any good?</h2>
+        <p class="muted">Nothing works until it is scored on a held-out golden set, with cost and latency tracked.</p>
+        <div id="chr-kpis" class="kpis"></div>
+      </div>
+      <div class="layout-2 even">
+        <div class="panel"><h3>🔍 Retrieval (test split, k = 5)</h3><div id="chr-retrieval"></div></div>
+        <div class="panel"><h3>🧪 Error analysis: v1 → v2</h3><div id="chr-versions"></div></div>
+      </div>
+      <div class="panel"><h3>📡 Live instrumentation — last questions</h3><div id="chr-live"></div></div>
+    </section>
+  </main>
+
+  <!-- ============================================================ DICE TRAY -->
+  <aside id="dice-tray" class="dice-tray">
+    <div class="tray-body">
+      <div class="dice-result" id="dice-result">
+        <div class="die" id="die-face">d20</div>
+        <div class="dice-text">
+          <div class="total" id="dice-total">—</div>
+          <div class="detail" id="dice-detail">Roll something!</div>
+        </div>
+      </div>
+      <div class="dice-buttons" id="dice-buttons"></div>
+      <div class="dice-row mods">
+        <label>Mod <input id="dice-mod" type="number" value="0" min="-20" max="30"></label>
+        <label class="check"><input type="radio" name="adv" value="" checked> Normal</label>
+        <label class="check"><input type="radio" name="adv" value="adv"> ADV</label>
+        <label class="check"><input type="radio" name="adv" value="dis"> DIS</label>
+      </div>
+      <form id="dice-form" class="dice-row">
+        <input id="dice-expr" placeholder="8d6 · 2d6+4 · 2d20kh1+5" autocomplete="off">
+        <button class="btn small">Roll</button>
+      </form>
+      <div class="tray-tools">
+        <button id="log-btn" class="btn tiny-btn" title="Roll history">📜</button>
+        <button id="sound-btn" class="btn tiny-btn" title="Dice sound">🔊</button>
+      </div>
+      <ul class="dice-log" id="dice-log"></ul>
+    </div>
+  </aside>
+
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button class="close" id="modal-close" aria-label="Close">✖</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+  <div id="toasts" class="toasts"></div>
+
+  <script src="/static/app.js?v=3"></script>
+</body>
+</html>
