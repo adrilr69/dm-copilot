@@ -1,0 +1,21 @@
+{
+  "questions": 17,
+  "splits": [
+    "dev"
+  ],
+  "success_rate": 1.0,
+  "trap_refusal_rate": 1.0,
+  "faithfulness_mean": 0.938,
+  "mean_iterations": 3.35,
+  "hallucinated_tool_call_rate": 0.0,
+  "terminated_by": {
+    "final_answer": 16,
+    "max_iterations": 1
+  },
+  "cost_per_question_usd": 0.00185,
+  "total_cost_usd": 0.0361,
+  "latency_p50_s": 2.54,
+  "latency_p95_s": 8.08,
+  "mean_tokens_in": 11600,
+  "mean_tokens_out": 175
+}
