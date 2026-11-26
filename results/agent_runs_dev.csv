@@ -1,0 +1,79 @@
+id,category,question,answer,citations,success,faithfulness,terminated_by,iterations,tool_calls,hallucinated_calls,tool_errors,tokens_in,tokens_out,cost_usd,judge_cost_usd,latency_s,tools_used
+name03,exact_name,How much weight can a Bag of Holding carry?,A Bag of Holding can carry up to **500 pounds** and **64 cubic feet** of material. It weighs 5 pounds itself.,srd-2024_bag-of-holding,True,1.0,final_answer,3,3,0,0,8014,107,0.001267,0.000199,2.258,search_library > get_entry > final_answer
+name06,exact_name,What is the challenge rating of a Lich?,The Lich has a **Challenge Rating (CR) of 21** in both the SRD 5.1 and SRD 5.2 sources.,srd_lich srd-2024_lich,True,1.0,final_answer,2,2,0,0,4952,85,0.000794,0.000186,1.466,search_library > final_answer
+name09,exact_name,What does the Mimic's Adhesive trait do?,"The Mimic’s **Adhesive (Object Form Only)** trait causes it to stick to anything that touches it. A Huge or smaller creature that touches the mimic becomes **Grappled** (escape DC 13), and ability checks to escape this grapple are made with **Disadvantage**.",srd-2024_mimic,True,1.0,final_answer,3,3,0,0,9084,131,0.001442,0.000279,2.345,search_library > get_entry > final_answer
+name12,exact_name,How long does Water Breathing last?,Water Breathing lasts **24 hours** (all official sources agree).,srd_water-breathing srd-2024_water-breathing a5e-ag_water-breathing,True,1.0,final_answer,2,2,0,0,3751,80,0.000611,0.000127,1.832,search_library > final_answer
+para03,paraphrase,A magic sack that is much bigger on the inside than on the outside,"The classic magic sack fitting your description is the **Bag of Holding** (Uncommon).
+- **Exterior**: Roughly 2 feet square and 4 feet deep.
+- **Interior**: 64 cubic feet, holding up to 500 pounds.
+- **Weight**: 5 pounds (regardless of contents).
+- **Retrieval**: Requires a **Utilize action**.
+- **Hazards**: Overloading, piercing, or tearing it destroys the bag and scatters contents in the Astral Plane. Placing it inside another extradimensional space (e.g., Portable Hole) instantly destroys both and opens a gate to the Astral Plane.
+
+*Citations: srd-2024_bag-of-holding*",srd-2024_bag-of-holding,True,1.0,final_answer,2,2,0,0,4445,213,0.000795,0.000263,2.212,search_library > final_answer
+para06,paraphrase,Spell that teleports you a short distance as a bonus action in a puff of silvery mist,"The spell you're looking for is **Misty Step** (level 2, Conjuration). It allows you to teleport up to 30 feet as a bonus action, surrounded by silvery mist. Available to Sorcerer, Warlock, and Wizard classes.",srd-2024_misty-step,True,1.0,final_answer,3,3,0,0,5892,119,0.000956,0.000209,2.196,search_library > get_entry > final_answer
+para09,paraphrase,A potion that gives you a flying speed for an hour,"The **Potion of Flying** (Very Rare) grants a **flying speed equal to your walking speed for 1 hour**, including the ability to **hover**. If you are still airborne when the effect ends, you fall unless you have another way to stay aloft. The potion's liquid is clear with cloudy white impurities.",srd-2024_potion-of-flying,True,1.0,final_answer,3,3,0,0,6127,143,0.001005,0.000208,3.726,search_library > get_entry > final_answer
+rule03,rules,What happens to a creature that has the Grappled condition?,"A creature with the **Grappled** condition:
+- Has its Speed reduced to **0** and cannot benefit from any bonuses to its Speed.
+- Has **Disadvantage** on attack rolls against any target other than the grappler.
+- Can be **dragged or carried** by the grappler, but movement costs the grappler extra movement (1 extra foot per foot moved unless the grappled creature is Tiny or two or more sizes smaller).
+
+The condition ends if:
+- The grappler becomes **Incapacitated**.
+- The grappled creature is **removed from the grappler’s reach** by an effect (e.g., *Thunderwave* spell or a shove maneuver).",grappled,True,1.0,final_answer,3,3,0,0,7901,214,0.001314,0.000344,2.536,search_library > get_entry > final_answer
+rule06,rules,How long does a long rest last and what does it restore?,"A **long rest** lasts **8 hours** and restores:
+- **Hit Points** (all lost HP)
+- **Half your Hit Dice** (rounded down), spent during the rest
+- **Spell slots** (full recovery for all classes except Warlock, who regains *Pact Magic* slots)
+- **Features/abilities** that restore on a long rest (e.g., Channel Divinity, Rage)
+- **Removes 1 level of exhaustion** (if caused by lack of food/water)
+
+*Sources: srd-2024_damage-and-healing_resting, srd-2024_damage-and-healing_healing, exhaustion (condition)*",,True,0.2857142857142857,max_iterations,8,8,0,0,45228,330,0.006987,0.000582,8.08,search_library > get_entry > search_library > search_library > search_library > search_library > get_entry > search_library
+rule09,rules,What does the Exhaustion condition do?,"The **Exhaustion** condition has **6 levels**, each worsening the effects:
+
+**SRD 5.1 (2014 rules):**
+- **Level 1:** Disadvantage on ability checks.
+- **Level 2:** Speed halved.
+- **Level 3:** Disadvantage on attack rolls and saving throws.
+- **Level 4:** Hit point maximum halved.
+- **Level 5:** Speed reduced to 0.
+- **Level 6:** Death.
+
+**SRD 5.2 (2024 rules):**
+- **D20 Tests:** Roll is reduced by **2 × Exhaustion level** (e.g., Level 1: −2, Level 3: −6).
+- **Speed:** Reduced by **5 × Exhaustion level** feet (e.g., Level 2: −10 ft).
+- **Level 6:** Death.
+- **Removal:** A long rest reduces Exhaustion by 1 level (if food and drink are consumed).",exhaustion,True,1.0,final_answer,3,3,0,0,7581,287,0.00131,0.000499,3.183,search_library > get_entry > final_answer
+ext03,extension,What is the Way of the Tipsy Monkey monk tradition?,"The **Way of the Tipsy Monkey** is a monk tradition from *Tome of Heroes* that focuses on unpredictable, staggering movements and using improvised weapons. Key features include:
+
+- **Adaptive Fighting (3rd level):** Proficiency with improvised weapons (treated as monk weapons). When using a magic item as an improvised weapon, gain a bonus to attack/damage based on its rarity (+1 for uncommon, +2 for rare, +3 for very rare).
+
+- **Sway and Strike (3rd level):** Spend 1 ki to make an opportunity attack without using your reaction. On a hit, force a Strength save or the target falls prone.
+
+- **Jester Style (6th level):** When hit by a weapon attack, use your reaction to halve the damage. While prone, you don’t have disadvantage on attacks, and enemies within 5 feet don’t have advantage on attacks against you. You can stand up for free if you spend ki on your turn.
+
+- **Fortune Favors the Fool (11th level):** If you miss an attack, your next hit before the end of your turn deals extra damage (1d6 for normal attacks, 1d10 for improvised weapons).
+
+- **Stumbling Stance (17th level):** Your reach increases by 5 feet, and you have advantage on opportunity attacks.
+
+*Source: Tome of Heroes (TOH)*",toh_way-of-the-tipsy-monkey,True,0.7857142857142857,final_answer,3,3,0,0,8330,383,0.001481,0.000547,3.303,search_library > get_entry > final_answer
+ext06,extension,What is an Ahuizotl?,"**Ahuizotl** is a **Small Monstrosity** (unaligned) with the following key traits:
+- **Armor Class:** 14 (natural armor)
+- **Hit Points:** 71 (13d6 + 26)
+- **Speed:** 30 ft. (walk), 30 ft. (swim)
+- **Challenge:** 2 (450 XP)
+
+**Traits:**
+- **Amphibious:** Can breathe air and water.
+- **Spiky Coat:** Creatures within 5 feet take 1d8 piercing damage on failed DC 14 Dexterity save.
+
+**Actions:**
+- **Multiattack:** Uses Tail Grab, then makes a bite and claw attack.
+- **Bite:** +5 to hit, 1d6 + 3 piercing damage.
+- **Claw:** +5 to hit, 1d6 + 3 slashing damage.
+- **Tail Grab:** Grapple (DC 14 Strength save) or steal objects (DC 14 Strength save).",ccdx_ahuizotl,True,1.0,final_answer,3,3,0,0,8599,299,0.00147,0.000513,3.114,search_library > get_entry > final_answer
+cmp03,comparison,"Which has more hit points, a Fire Giant or a Frost Giant?",A Fire Giant (162 hit points) has more hit points than a Frost Giant (149 hit points).,srd-2024_fire-giant srd-2024_frost-giant,True,1.0,final_answer,2,3,0,0,6734,96,0.001069,0.00032,2.061,search_library > search_library > final_answer
+agent05,multi_step,What is the average damage of one Rend attack from a Troll (2024)?,The average damage of one Rend attack from a Troll (2024) is **11**.,srd-2024_troll,True,1.0,final_answer,4,4,0,0,12108,103,0.001879,0.000234,3.292,search_library > get_entry > dice_stats > final_answer
+agent09,multi_step,Quelle est la classe d'armure de la Tarrasque ?,La classe d'armure de la Tarrasque est **25 (armure naturelle)** selon les deux versions SRD 5.1 et SRD 5.2.,srd_tarrasque srd-2024_tarrasque,True,1.0,final_answer,2,2,0,0,4580,92,0.000743,0.000188,1.819,search_library > final_answer
+trap03,out_of_library,What is the Armor Class of a Displacer Beast?,The **Displacer Beast** is not included in the open SRD 5.1/5.2 library.,,True,,final_answer,5,5,0,0,20726,122,0.003184,0.0,4.93,search_library > search_library > get_entry > search_library > final_answer
+trap06,out_of_library,What does the Umber Hulk's confusing gaze do?,"The Umber Hulk is **not in the open SRD/OGL library**, so its traits (including the confusing gaze) cannot be retrieved from official sources. If you need its stats or abilities, you may need to consult a non-open source (e.g., Monster Manual).",,True,,final_answer,6,6,0,0,33145,171,0.005078,0.0,5.481,search_library > search_library > search_library > get_entry > search_library > final_answer

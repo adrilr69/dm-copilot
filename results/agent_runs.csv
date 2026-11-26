@@ -1,0 +1,191 @@
+id,category,question,answer,citations,success,faithfulness,terminated_by,iterations,tool_calls,hallucinated_calls,tool_errors,tokens_in,tokens_out,cost_usd,judge_cost_usd,latency_s,tools_used
+name01,exact_name,How many hit points does a Troll have in the 2024 rules?,"In the 2024 rules (SRD 5.2), a Troll has **94 hit points** (9d10 + 45).",srd-2024_troll,True,1.0,final_answer,3,3,0,0,7937,109,0.001257,0.00024,3.585,search_library > get_entry > final_answer
+name02,exact_name,How much damage does the Fireball spell deal?,"Fireball deals **8d6 fire damage** on a failed save (28 average damage). At higher levels, it increases by 1d6 per slot level above 3rd.",srd-2024_fireball,True,1.0,final_answer,3,3,0,0,6711,93,0.001063,0.00017,1.774,search_library > dice_stats > final_answer
+name04,exact_name,How many experience points is an Owlbear worth?,An Owlbear is worth **700 XP** (Challenge Rating 3).,srd-2024_owlbear srd_owlbear srd_monsters_experience-points-by-cr,True,1.0,final_answer,2,2,0,0,4578,85,0.000739,0.000191,1.879,search_library > final_answer
+name05,exact_name,What is the casting time of Counterspell?,The casting time of **Counterspell** is **1 reaction**.,srd-2024_counterspell,True,1.0,final_answer,2,2,0,0,4075,64,0.00065,0.000127,1.432,search_library > final_answer
+name07,exact_name,What is the Armor Class of the Tarrasque?,The Tarrasque has an **Armor Class of 25 (natural armor)** in both the SRD 5.1 and SRD 5.2 sources.,srd_tarrasque srd-2024_tarrasque,True,1.0,final_answer,2,2,0,0,4577,92,0.000743,0.000185,1.582,search_library > final_answer
+name08,exact_name,How far can you teleport with Misty Step?,"With **Misty Step**, you can teleport up to **30 feet** to an unoccupied space you can see. This is consistent across SRD 5.1, SRD 5.2, and the Adventurer's Guide versions.",srd_misty-step srd-2024_misty-step a5e-ag_misty-step,True,1.0,final_answer,2,2,0,0,3666,109,0.000616,0.0002,1.74,search_library > final_answer
+name10,exact_name,How deep is a Portable Hole?,A Portable Hole creates an extradimensional hole that is **10 feet deep** (SRD 5.1 and SRD 5.2).,srd_portable-hole srd-2024_portable-hole,True,1.0,final_answer,2,2,0,0,4522,81,0.000728,0.000125,1.389,search_library > final_answer
+name11,exact_name,What material component does Revivify require and how much is it worth?,"Revivify requires a diamond worth 300 gp as a material component, which the spell consumes.",srd-2024_revivify,True,1.0,final_answer,2,2,0,0,3935,71,0.000634,0.000141,1.327,search_library > final_answer
+para01,paraphrase,Which large giant regrows lost limbs and only stops regenerating after fire or acid damage?,"The **Firestorm Giant** (CR 7, Huge Giant) from *Tome of Beasts 3* regenerates lost limbs and ceases regeneration only after taking fire or acid damage.",tob3_giant-firestorm,False,0.5,final_answer,4,4,0,0,13724,135,0.002141,0.000372,3.212,search_library > get_entry > search_library > final_answer
+para02,paraphrase,Is there a spell that lets my whole party breathe underwater for a day?,"Yes. **Water Breathing** (level 3, 24-hour duration) lets up to ten willing creatures breathe underwater for a full day. It is available to Druids, Rangers, Sorcerers, and Wizards. Sources: SRD 5.1 (doc_id: srd_water-breathing), SRD 5.2 (doc_id: srd-2024_water-breathing), and Adventurer’s Guide (doc_id: a5e-ag_water-breathing).",srd_water-breathing srd-2024_water-breathing a5e-ag_water-breathing,True,1.0,final_answer,2,2,0,0,3851,186,0.00069,0.000223,1.954,search_library > final_answer
+para04,paraphrase,A transparent cube of acidic ooze that fills dungeon corridors and engulfs adventurers,"Here are two open-content options for a transparent acidic ooze cube that fills corridors and engulfs adventurers:
+
+1. **Gelatinous Cube** (SRD 5.2, CR 2)
+   - **Size:** Large ooze (transparent, fills its space).
+   - **Speed:** 15 ft.
+   - **Engulf:** DC 12 Dex save. On fail: 10 (3d6) acid damage + engulfed (restrained, suffocating, 10 (3d6) acid damage/turn). Escape: DC 12 Str check.
+   - **Pseudopod:** +4, 12 (3d6 + 2) acid damage.
+   - **Transparent:** DC 15 Wis (Perception) to notice if motionless.
+   - **Traits:** Immune to acid; fills entire space; can hold 1 Large or 4 Medium/Small creatures.
+
+2. **Gelatinous Wall** (Monstrous Menagerie, CR 7)
+   - **Size:** Huge ooze (transparent, corridor-filling).
+   - **Speed:** 30 ft.
+   - **Engulf:** DC 13 Dex save (disadvantage if unaware). On fail: 10 (3d6) acid + 9 (2d6 + 2) bludgeoning damage + engulfed (restrained, suffocating, 10 (3d6) acid + 9 (2d6 + 2) bludgeoning/turn). Escape: DC 13 Str check.
+   - **Pseudopod:** +5, 10 (3d6) acid + 9 (2d6 + 2) bludgeoning damage.
+   - **Transparent:** DC 15 Perception to spot if motionless.
+   - **Traits:** Immune to acid; engulfing body; sunlight sensitivity.
+
+Both are open-content monsters that fit your description.",srd-2024_gelatinous-cube a5e-mm_gelatinous-wall,True,1.0,final_answer,3,4,0,0,9391,542,0.001736,0.000916,4.29,search_library > get_entry > get_entry > final_answer
+para05,paraphrase,A monster that disguises itself as a treasure chest or a door to ambush adventurers,"The classic monster that disguises itself as a treasure chest or a door to ambush adventurers is the **Mimic** (CR 2).
+
+- **False Appearance:** While motionless, it is indistinguishable from an ordinary object (e.g., a chest or door).
+- **Adhesive:** Creatures touching it become grappled (escape DC 13).
+- **Bite/Pseudopod:** Deals 7 (1d8 + 3) piercing or bludgeoning damage + 4 (1d8) acid damage.
+
+For stronger variants:
+- **Cave Mimic** (CR 7): Gargantuan size, burrowing, and terrain mimicry (e.g., walls or floors).
+
+**Sources:** srd-2024_mimic, tob3_cave-mimic",srd-2024_mimic tob3_cave-mimic,True,1.0,final_answer,4,4,0,0,13841,294,0.002255,0.000494,4.192,search_library > search_library > search_library > final_answer
+para07,paraphrase,An undead spellcaster that hides its soul in a phylactery to become immortal,"The classic undead spellcaster that hides its soul in a phylactery to achieve immortality is the **Lich** (CR 21, SRD 5.2).
+
+Key features:
+- **Spirit Jar (Rejuvenation):** If destroyed, it reforms in 1d10 days if it has a phylactery (spirit jar), regaining all hit points. The new body appears in its lair.
+- **Legendary Resistance (4/Day, 5/Day in Lair):** Can succeed on a failed saving throw.
+- **Spellcasting:** 18th-level spellcaster (Intelligence-based), with access to high-level spells like *Finger of Death*, *Power Word Kill*, and *Chain Lightning*.
+- **Damage Immunities:** Necrotic, poison; **Condition Immunities:** Charmed, exhaustion, frightened, paralyzed, poisoned.
+- **Senses:** Truesight 120 ft.
+
+**Doc IDs used:** srd-2024_lich",srd-2024_lich,True,1.0,final_answer,3,3,0,0,9139,304,0.001555,0.000508,3.074,search_library > get_entry > final_answer
+para08,paraphrase,A reaction spell to interrupt and cancel another creature's spell,"The official reaction spell to interrupt and cancel another creature's spell is **Counterspell** (level 3, Abjuration).
+
+- **Casting Time:** Reaction (triggered when you see a creature casting a spell).
+- **Range:** 60 feet.
+- **Effect:** The target creature must make a Constitution saving throw. On a failed save, the spell is canceled, and the action/bonus action/reaction used to cast it is wasted. Spell slots are not expended.
+
+**Classes:** Sorcerer, Warlock, Wizard.
+
+*Source: SRD 5.2*
+
+Doc ID: srd-2024_counterspell",srd-2024_counterspell,True,1.0,final_answer,3,3,0,0,7220,218,0.001215,0.00029,3.139,search_library > get_entry > final_answer
+para10,paraphrase,"The colossal, nearly unkillable monster that sleeps for ages and devastates whole regions","The monster you describe is the **Tarrasque** (SRD 5.2): a gargantuan, unaligned monstrosity with **697 HP**, **AC 25**, and **CR 30**. It has **Legendary Resistance (6/day)**, **Magic Resistance**, and **Damage Immunities (fire, poison)**. It can **grapple, swallow creatures whole**, and devastate regions with multiattacks and a **Thunderous Bellow** (78 thunder damage in a 150-ft cone, DC 27 Con save for half). It also has **Siege Monster** traits, doubling damage to objects and structures.",srd-2024_tarrasque,True,1.0,final_answer,3,3,0,0,9261,211,0.001516,0.000437,3.073,search_library > get_entry > final_answer
+rule01,rules,What is an opportunity attack and what does it cost?,"An **opportunity attack** is a melee attack you make as a **reaction** when a hostile creature you can see moves out of your reach. It costs **1 reaction** and occurs just before the creature leaves your reach. You can avoid provoking it by taking the **Disengage** action or via effects that prevent opportunity attacks (e.g., teleportation).",srd_attacking_opportunity-attacks srd_combat-sequence_reactions,True,1.0,final_answer,2,2,0,0,3842,133,0.000657,0.000203,1.824,search_library > final_answer
+rule02,rules,How much does half cover and three-quarters cover add to Armor Class?,Half cover grants a **+2 bonus** to AC and Dexterity saving throws. Three-quarters cover grants a **+5 bonus** to AC and Dexterity saving throws.,srd-2024_combat_cover,True,1.0,final_answer,2,2,0,0,4031,88,0.000659,0.000165,1.6,search_library > final_answer
+rule04,rules,What does the Poisoned condition do?,"While you have the Poisoned condition, you have disadvantage on attack rolls and ability checks.",poisoned,True,1.0,final_answer,2,2,0,0,4244,59,0.000673,0.000137,1.431,search_library > final_answer
+rule05,rules,How do death saving throws work when a character drops to 0 hit points?,"When a character drops to 0 hit points:
+- They must start making **Death Saving Throws** at the start of each of their turns.
+- Roll a **d20**:
+  - **10+**: Success (no immediate effect).
+  - **Below 10**: Failure (no immediate effect).
+- **3 successes**: The character becomes **Stable** (no longer needs Death Saving Throws).
+- **3 failures**: The character **dies**.
+- **Rolling a 1**: You suffer **2 failures**.
+- **Rolling a 20**: You **regain 1 hit point**.
+- **Taking damage at 0 HP**: Each instance of damage forces a **Death Saving Throw failure**. If the damage is a **Critical Hit**, you suffer **2 failures** instead.
+- **Successes/Failures reset** if you regain any hit points or become Stable.",srd-2024_damage-and-healing_dropping-to-zero-hit-points,True,1.0,final_answer,2,2,0,0,4392,265,0.000819,0.00033,3.207,search_library > final_answer
+rule07,rules,What is the XP budget per character for a moderate encounter at character level 5?,"For a **moderate** encounter at character level 5, the XP budget per character is **750 XP** (SRD 5.2.1).",srd52pdf_srd52_combat_encounters,True,1.0,final_answer,5,5,0,0,8958,190,0.001458,0.000143,2.945,encounter_difficulty > encounter_difficulty > encounter_difficulty > encounter_difficulty > final_answer
+rule08,rules,What ability score do I need to multiclass into another class?,"To multiclass into another class, you must have a **score of at least 13** in the **primary ability score** of the new class. If the new class has multiple primary abilities, you need a 13 in **each** of them. Additionally, you must meet the ability score prerequisites of your current class as well.
+
+For example:
+- **Fighter**: Strength **or** Dexterity 13.
+- **Monk**: Dexterity **and** Wisdom 13.
+- **Paladin**: Strength **and** Charisma 13.
+- **Ranger**: Dexterity **and** Wisdom 13.",srd-2024_multiclassing_prerequisties srd_multiclassing_prerequistes,True,1.0,final_answer,2,2,0,0,3892,209,0.00071,0.000253,2.049,search_library > final_answer
+ext01,extension,What is a Dullahan in the Tome of Beasts?,"The **Dullahan** in *Tome of Beasts* (2023) is a **Large Fey, Lawful Evil** creature with **Challenge Rating 11 (7,200 XP)**. 
+
+**Key Features:**
+- **AC 17**, **HP 178**, **Speed 60 ft.**
+- **Damage Immunities:** Necrotic
+- **Condition Immunities:** Charmed, exhaustion, frightened
+- **Senses:** Truesight 60 ft.
+
+**Traits:**
+- **Baleful Glare:** Frightens creatures within 30 ft. (DC 17 Wisdom save).
+- **Relentless Advance:** Ignores difficult terrain and can walk on water.
+- **Relentless Nature:** Doesn’t need food, drink, or sleep.
+
+**Actions:**
+- **Multiattack:** Three attacks (Spine Whip, Necrotic Bolt, or Seal the Doom).
+- **Spine Whip:** +8 to hit, 10 ft. reach, 11 (2d6+4) slashing + 10 (3d6) necrotic damage. Target must save (DC 17 Con) or fall prone.
+- **Necrotic Bolt:** +7 to hit, 120 ft. range, 21 (4d8+3) necrotic damage.
+- **Seal the Doom:** Forces a doomed target (from *Deathly Doom*) to make a DC 17 Con save or drop to 0 HP if below half.
+
+**Bonus Action:**
+- **Deathly Doom:** Magically dooms one creature for 1 hour (direction known to the Dullahan).",tob-2023_dullahan,True,1.0,final_answer,3,3,0,0,8623,447,0.001563,0.000623,4.017,search_library > get_entry > final_answer
+ext02,extension,Is there a magic teapot that calms people down?,"There is no magic teapot that directly calms emotions in the official or open-content libraries. However, the **Teapot of Soothing** (Vault of Magic, Rare) serves tea that grants **2d6 temporary HP for 24 hours** and gives advantage on **Charisma (Persuasion) checks for 10 minutes** after pouring. For calming effects, consider the spell **Calm Emotions** (SRD 5.2, Level 2), which suppresses charm/frightened conditions or indifference toward hostile creatures for 1 minute (concentration).",vom_teapot-of-soothing srd-2024_calm-emotions,True,0.75,final_answer,2,2,0,0,4090,173,0.000718,0.000219,1.882,search_library > final_answer
+ext04,extension,What is the Runechild sorcerer from the Tal'Dorei Campaign Setting?,"**Runechild** is a Sorcerer subclass from the *Tal'Dorei Campaign Setting*. Runechildren are sorcerers whose bodies store innate magical energy in the form of natural runes beneath their skin. These runes can be charged with sorcery points and used to power unique abilities, such as absorbing damage or revealing hidden magical marks.
+
+Key features:
+- **Essence Runes (1st level):** Your body gains runes that store magical energy. You start with 1 rune and gain more as you level up. Runes can be charged with sorcery points and used to fuel abilities.
+- **Glyphs of Aegis (1st level):** Use charged runes to absorb damage or transfer a protective glyph to another creature.
+- **Manifest Inscriptions (6th level):** Reveal hidden magical marks or glyphs within 15 feet.
+- **Sigilic Augmentation (6th level):** Temporarily enhance your physical abilities by expending a charged rune.
+
+This subclass is not available in the core *System Reference Document (SRD 5.2)*.",tdcs_runechild srd-2024_sorcerer,True,1.0,final_answer,4,4,0,0,13001,334,0.002152,0.000527,4.126,search_library > get_entry > get_entry > final_answer
+ext05,extension,What does the spell Hedren's Birds of Clay do?,"**Hedren’s Birds of Clay** (3rd-level Conjuration)
+- **Casting Time:** 1 action | **Range:** Self | **Duration:** Concentration, 5 min.
+- **Components:** V, M (clay bird figurine)
+
+You summon **1d4 + spellcasting mod** (min 1) clay pigeons. When targeted by a ranged attack, use reaction to shout “Pull!”: one pigeon blocks the attack. If attack roll < **10 + proficiency bonus**, it misses. Else, make a spellcasting check vs. attack roll; if higher, the attack is intercepted. Each use expends one pigeon. Spell ends when all pigeons are used.
+
+**At Higher Levels (4+):** Add +1 to the miss threshold and interception check per slot level above 3.
+
+*Source: Deep Magic for 5th Edition (doc_id: deepm_hedrens-birds-of-clay)*",deepm_hedrens-birds-of-clay,True,1.0,final_answer,3,3,0,0,7751,282,0.001333,0.000424,3.55,search_library > get_entry > final_answer
+ext07,extension,Stats of the Cave Giant Shaman from Tome of Beasts 2,"**Cave Giant Shaman** (Tome of Beasts 2)
+- **Size:** Huge Giant, Chaotic Evil
+- **AC:** 16 (natural armor)
+- **HP:** 207 (18d12 + 90)
+- **Speed:** 40 ft.
+- **STR 27** (+8) | **DEX 10** (+0) | **CON 20** (+5) | **INT 10** (+0) | **WIS 15** (+2) | **CHA 21** (+5)
+- **Saving Throws:** Dex +5, Con +10, Wis +7
+- **Skills:** Arcana +5, Athletics +13, Perception +7, Survival +7
+- **Senses:** Darkvision 120 ft., Passive Perception 17
+- **Languages:** Common, Giant
+- **CR:** 14 (11,500 XP)
+
+**Traits:**
+- **Spellcasting:** 14th-level, Charisma-based (DC 18, +10 to hit). Prepared spells include *disintegrate* (6th) and *reverse gravity* (7th).
+- **Sunlight Petrification:** Takes 20 radiant damage in sunlight; moves at half speed, disadvantage on attacks/ability checks; petrified if killed in sunlight.
+
+**Actions:**
+- **Multiattack:** Two attacks (club + tusks).
+- **Club:** +13 to hit, 10 ft., 15 (3d4 + 8) bludgeoning damage.
+- **Tusks:** +13 to hit, 10 ft., 22 (4d6 + 8) slashing damage; DC 20 Str save or knocked prone (Large or smaller).
+- **Rock:** Ranged +13 to hit (60/240 ft.), 30 (4d10 + 8) bludgeoning damage.",tob2_cave-giant-shaman,True,1.0,final_answer,3,3,0,0,8967,531,0.001665,0.000833,3.911,search_library > get_entry > final_answer
+cmp01,comparison,Compare the challenge ratings of the Adult Red Dragon and the Adult Blue Dragon,"**Adult Red Dragon** has a **Challenge Rating (CR) of 17**.
+
+**Adult Blue Dragon** has a **Challenge Rating (CR) of 16**.
+
+The Adult Red Dragon is slightly more challenging than the Adult Blue Dragon.",srd-2024_adult-red-dragon srd-2024_adult-blue-dragon,True,1.0,final_answer,2,3,0,0,7670,140,0.001236,0.000326,2.109,search_library > search_library > final_answer
+cmp02,comparison,"In the 2024 rules, how many dice of healing do Cure Wounds and Healing Word restore?","In the 2024 rules:
+- Cure Wounds restores **2d8** (plus spellcasting modifier) at base level.
+- Healing Word restores **2d4** (plus spellcasting modifier) at base level.",srd-2024_cure-wounds srd-2024_healing-word,True,1.0,final_answer,2,3,0,0,4944,151,0.000835,0.000275,2.116,search_library > search_library > final_answer
+agent01,multi_step,How difficult is an encounter with 2 Trolls for a party of four level 5 characters?,"This encounter is **HIGH** difficulty for a party of four level 5 characters. The two Trolls provide a total of 3,600 XP, which exceeds the moderate threshold (3,000 XP) but is within the high threshold (4,400 XP).",srd-2024_troll srd52pdf_srd52_combat_encounters,True,1.0,final_answer,2,2,0,0,3157,147,0.000562,0.000114,1.497,encounter_difficulty > final_answer
+agent02,multi_step,Four level 3 characters fight 1 Owlbear and 2 Wolves. What is the encounter difficulty?,"This encounter is **MODERATE** for four 3rd-level characters (total XP: 800).
+- Owlbear (CR 3, 700 XP)
+- 2 Wolves (CR 0.25, 50 XP each)",srd-2024_owlbear srd-2024_wolf srd52pdf_srd52_combat_encounters,True,1.0,final_answer,2,2,0,0,3229,172,0.000588,0.000117,1.541,encounter_difficulty > final_answer
+agent03,multi_step,Is one Ogre a fair fight for four level 1 characters?,"For four level 1 characters, a single Ogre is a BEYOND HIGH (potentially deadly) encounter. The Ogre's total XP (450) exceeds the high threshold (400) for four 1st-level characters.",srd-2024_ogre srd52pdf_srd52_combat_encounters,True,1.0,final_answer,2,2,0,0,3145,138,0.000555,9.1e-05,1.89,encounter_difficulty > final_answer
+agent04,multi_step,What is the average damage of a Fireball cast with a 5th-level spell slot?,The average damage of a Fireball cast with a 5th-level spell slot is **35**.,srd-2024_fireball,True,1.0,final_answer,2,2,0,0,2986,62,0.000485,4.1e-05,0.979,dice_stats > final_answer
+agent06,multi_step,Six level 15 characters face 2 Adult Red Dragons and 2 Fire Giants. How hard is it?,"This encounter is **HIGH** difficulty for six 15th-level characters.
+
+- **Total XP:** 46,000 (2 Adult Red Dragons: 36,000 XP | 2 Fire Giants: 10,000 XP).
+- **XP Budget for 6x 15th-level PCs:** Moderate = 32,400 | High = 46,800.
+- Your party is slightly below the **HIGH** threshold but still within a challenging range.",srd-2024_adult-red-dragon srd-2024_fire-giant srd52pdf_srd52_combat_encounters,True,1.0,final_answer,2,2,0,0,3271,245,0.000638,0.000163,2.289,encounter_difficulty > final_answer
+agent07,multi_step,Combien de points de vie a un Troll selon les règles 2024 ?,Un Troll a **94 points de vie** (9d10 + 45) selon les règles 2024 (SRD 5.2).,srd-2024_troll,True,1.0,final_answer,2,2,0,0,4466,89,0.000723,0.000178,1.362,search_library > final_answer
+agent08,multi_step,Mes 5 joueurs de niveau 3 affrontent 2 druides et 9 stirges : quelle est la difficulté de la rencontre ?,La rencontre est **MODÉRÉE** pour 5 joueurs de niveau 3 (budget total : 1 125 XP).,srd-2024_druid srd-2024_stirge srd52pdf_srd52_combat_encounters,True,1.0,final_answer,2,2,0,0,3249,146,0.000575,8.5e-05,1.716,encounter_difficulty > final_answer
+trap01,out_of_library,What are the stats of a Beholder?,The Beholder is not available in the open content library (SRD 5.1/5.2 or open extensions). Only the Behir (a different creature) appears in the results.,,True,,final_answer,4,4,0,0,13703,197,0.002175,0.0,3.56,search_library > search_library > search_library > final_answer
+trap02,out_of_library,What is the challenge rating of a Mind Flayer?,"The **Mind Flayer** (also known as an **Illithid**) is **not present in the open SRD 5.1/5.2 library**. Only the **Intellect Devourer** (CR 3) is available as a similar aberration in third-party open content{""answer"": ""The Mind Flayer (Illithid) is not included in the open SRD 5.1/5.2 library. Only the Intellect Devourer (CR 3) is available as a similar aberration in third-party open content."", ""citations"": []}",,True,,text,7,6,0,0,45926,253,0.007044,0.0,6.41,search_library > search_library > search_library > get_entry > search_library > search_library
+trap04,out_of_library,Quelles sont les statistiques de Strahd von Zarovich ?,"Strahd von Zarovich n'est pas présent dans la bibliothèque ouverte (SRD 5.1/5.2 et extensions open content). Seuls des vampires génériques (CR 13) sont disponibles dans les sources consultées. Pour jouer Strahd, il faut utiliser une version officielle comme *Curse of Strahd* ou une adaptation non open content.
+
+Exemple de statistiques pour un **Vampire (CR 13)** (SRD 5.2) :
+- **Classe d'armure** 16 (armure naturelle)
+- **Points de vie** 195 (23d8 + 92)
+- **Vitesse** 40 ft., escalade 40 ft.
+- **Caractéristiques** : FOR 18 (+4), DEX 18 (+4), CON 18 (+4), INT 17 (+3), SAG 15 (+2), CHA 18 (+4)
+- **Jets de sauvegarde** FOR +9, DEX +9, CON +9, INT +8, SAG +7, CHA +9
+- **Compétences** Perception +7, Discrétion +9
+- **Résistances** nécrotique
+- **Sens** vision dans le noir 120 ft., Perception passive 17
+- **Langues** Commun et deux autres
+- **Actions** : Multiattaque (2 attaques), Morsure (réduction de points de vie max), Griffe, etc.
+- **Résistance légendaire** 3/jour (4/jour dans son repaire).
+- **Échappée brumeuse** : Se transforme en brume à 0 PV hors de son reposoir.
+- **Régénération** : 20 PV au début de son tour si pas de dégâts radiants.
+
+*Doc IDs utilisés : srd-2024_vampire.*",srd-2024_vampire,True,,final_answer,4,4,0,0,16257,527,0.002758,0.0,5.394,search_library > search_library > search_library > final_answer
+trap05,out_of_library,How strong is a Githyanki Knight?,"The **Githyanki Knight** is not present in the open D&D SRD 5.1/5.2 or official extensions. It is likely a homebrew or third-party creature.
+
+If you are looking for a similar official creature, the **Knight** (CR 3) from the SRD 5.2 is a comparable humanoid warrior with a **Multiattack** (two greatsword or crossbow attacks), **Parry** reaction, and **18 AC**, dealing around **10–11 damage per hit** (plus radiant damage in 5.2).
+
+For a stronger official alternative, consider the **Fey Knight** (CR 4, Monstrous Menagerie) with **fly speed, higher Dex, and cold/fire/lightning damage options**, or the **Ghost Knight** (CR 7, Tome of Beasts) with **necrotic resistance and undead traits**.",,True,,final_answer,7,7,0,0,48115,355,0.007434,0.0,7.73,search_library > search_library > search_library > search_library > get_entry > search_library > final_answer
